@@ -1,0 +1,107 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입처리</title>
+</head>
+<body>
+	<%
+	    /* 스크립트릿은 자바코드만 작성 가능하다. */
+	 	request.setCharacterEncoding("utf-8");
+	     
+	    // RequestJoin.jsp의 입력된 정보를 Request 객체를 통해
+	    // 정보를 꺼내오세요
+
+	    String id = request.getParameter("id");
+	    String pass = request.getParameter("pass");
+	    String passchk = request.getParameter("passchk");
+	    String email = request.getParameter("email");
+	    String phone = request.getParameter("tel");
+	    
+	    /* 체크박스는 동시에 여러개를 선택해야 하므로 배열에 담는다. */
+	    String[] hobby = request.getParameterValues("hobby");
+	    
+	    String job = request.getParameter("job");
+	    String age = request.getParameter("age");
+	    String info = request.getParameter("info");
+	    
+	    String msg = "";
+	    /* 비밀번호와 비밀번호체크가 같아야 회원가입 성공
+	       비밀번호와 비밀번호체크가 다르면 비밀번호가 틀립니다. 메시지 창 띄우기
+	    */
+	    if(id == null || id.isEmpty()){
+	    	msg ="아이디를 입력하세요";
+	    }else if(pass == null || pass.isEmpty()){
+	    	msg ="비밀번호를 입력하세요";
+	    }else{
+	    	msg="예외";
+	    }
+	%>
+	<!-- 
+	     자바스크립트 객체 종류
+	     1. 코어객체
+	     2. DOM객체
+	     3. BOM객체 ==> 브라우저에서 사용하는 객체
+	     
+	        history객체는 브라우저가 현재 탭이나 창에서 방문했던 웹페이지들의
+	        기록(Session History)을 관리하고 제어하는 객체이다.
+	        
+	        * history 객체의 메소드 종류
+	          - history.back() : 바로 이전 페이지로 이동(뒤로가기)
+	          - history.forward() : 바로 다음 페이지로 이동(앞으로 가기)
+	          - history.go(n) : 지정한 상대적 위치만큼 이동
+	            - history.go(1)은 앞으로 가기
+	            - history.go(0)은 현재페이지
+	            - history.go(-1)은 뒤로 가기
+	 -->
+	<script type="text/javascript">
+		alert("<%= msg %>");
+		history.go(-1);
+	</script>
+	
+  
+   
+   <!-- 테이블로 화면 출력  -->
+   <div class="joinContainer">
+ 	<h2> 회원가입 출력정보 </h2>
+ 		<table width="500" border="1">
+ 			<tr height="50">
+ 				<td align="center" width="150">아이디</td>
+ 				<td width="350"><%= id %></td>
+ 			</tr>
+ 			<tr height="50">
+ 				<td align="center" width="150">email</td>
+ 				<td width="350"><%= email %></td>
+ 			</tr>
+ 			<tr height="50">
+ 				<td align="center" width="150">전화번호</td>
+ 				<td width="350"><%= phone %></td>
+ 			</tr>
+ 			<tr height="50">
+ 				<td align="center" width="150">관심분야</td>
+ 				<td width="350">
+ 					<%
+ 					   for(int i=0; i<hobby.length; i++){
+ 						   out.write(hobby[i]+" ");
+ 					   }
+ 					%>
+ 				</td>
+ 			</tr>
+ 			<tr height="50">
+ 				<td align="center" width="150">직업</td>
+ 				<td width="350"><%= job %></td>
+ 			</tr>
+ 			<tr height="50">
+ 				<td align="center" width="150">연령</td>
+ 				<td width="350"><%= age %></td>
+ 			</tr>
+ 			<tr height="50">
+ 				<td align="center" width="150">남기는 말</td>
+ 				<td width="350"><%= info %></td>
+ 			</tr>
+ 		</table>
+ 	</div>		
+</body>
+</html>

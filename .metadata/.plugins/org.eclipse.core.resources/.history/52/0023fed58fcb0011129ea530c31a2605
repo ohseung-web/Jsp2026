@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입처리</title>
+</head>
+<body>
+	<%
+	 	request.setCharacterEncoding("utf-8");
+	     
+	    // RequestJoin.jsp의 입력된 정보를 Request 객체를 통해
+	    // 정보를 꺼내오세요
+
+	    String id = request.getParameter("id");
+	    String pass = request.getParameter("pass");
+	    String passchk = request.getParameter("passchk");
+	    String email = request.getParameter("email");
+	    String phone = request.getParameter("tel");
+	    
+	    /* 체크박스는 동시에 여러개를 선택해야 하므로 배열에 담는다. */
+	    String[] hobby = request.getParameterValues("hobby");
+	    
+	    String job = request.getParameter("job");
+	    String age = request.getParameter("age");
+	    String info = request.getParameter("info");
+	%>
+</body>
+</html>

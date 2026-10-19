@@ -1,0 +1,36 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+     post방식으로 정보를 전달할때 한글의 깨짐 현상방지 코드
+     자바코드를 작성할때는 스크립트 요소중 하나인 스크립트릿을 이용한다.
+     RequestLoginProc.jsp는 로그인 처리 페이지이다.
+ -->
+    <%
+        request.setCharacterEncoding("utf-8");
+    
+        // request의 내장객체에 getParameter("name")메소드를
+        // 이용하여 form에 입력한 정보를 꺼내욜 수 있다.
+        // 단, request.getParameter("name")의 반환 데이터형식은 String이다.
+        
+        // id라는 name을 가진 input의 
+        // 정보를 getParameter()을 통해꺼내서 id변수에 저장한다.
+        
+        String id = request.getParameter("id");
+        String pass = request.getParameter("pass");
+    %> 
+    
+    <h3>당신의 아이디는 <%= id %>이고, 비밀번호는 <%= pass %>이다.</h3>
+    <!-- Request 객체의 실행범위는 다음 페이지까지임을 주의 하자.
+         여기서 다음페이지 RequestLoginProc.jsp 페이지 이다.
+     -->
+    <a href="RequestForward.jsp">다음페이지</a>
+    
+</body>
+</html>

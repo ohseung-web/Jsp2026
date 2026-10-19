@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 성적 그래프 : 선언문이용하여 getGrade(int score) 함수 만들기 -->
+<%!
+   public String getGrade(int score){
+	 if(score >= 90){
+		 return "A";
+	 }else if(score >=80){
+		 return "B";
+	 }else if(score >=80){
+		 return "C";
+	 }else if(score >=80){
+		 return "D";
+	 }else {
+		 return "F";
+	 }
+   }
+%>
+
+</body>
+</html>
