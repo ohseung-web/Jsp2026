@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<h3>차량조회</h3>
+<table class="list" border="1">
+	<tr>
+		<th>차량번호</th>
+		<th>모델</th>
+		<th>제조사</th>
+		<th>구매일</th>
+	</tr>
+	<tr>
+		<td>10가0001</td>
+		<td>소나타</td>
+		<td>현대</td>
+		<td>2023년01월01일</td>
+	</tr>
+	<tr>
+		<td>10가0002</td>
+		<td>KS</td>
+		<td>기아</td>
+		<td>2023년01월02일</td>
+	</tr>
+	<tr>
+		<td>10가0003</td>
+		<td>SM5</td>
+		<td>삼성</td>
+		<td>2023년01월03일</td>
+	</tr>
+	<tr>
+		<td>10가0004</td>
+		<td>그렌저</td>
+		<td>현대</td>
+		<td>2023년01월04일</td>
+	</tr>
+	<tr>
+		<td>10가0005</td>
+		<td>KS</td>
+		<td>기아</td>
+		<td>2023년01월05일</td>
+	</tr>
+</table>
