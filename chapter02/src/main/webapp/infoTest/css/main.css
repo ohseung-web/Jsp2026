@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+    font-family: "맑은 고딕", "Malgun Gothic", sans-serif;
+    font-size: 15px;
+}
+
+/* 전체 틀 : 브라우저 화면 꽉 채우기 */
+#wrap {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* header */
+header {
+    height: 100px;
+    background-color: #bdd3ea;
+    text-align: center;
+    line-height: 100px;
+}
+h2 { font-size: 24px; text-align: center; }
+
+/* nav */
+nav {
+    height: 50px;
+    background-color: #8a86e0;
+    line-height: 50px;
+}
+nav ul { list-style: none; display: flex; justify-content: space-around; }
+nav li { flex: 1; text-align: center; }
+nav a { display: block; color: #fff; text-decoration: none; font-size: 15px; }
+nav a:hover { background-color: #6f6ac9; }
+
+/* section */
+section {
+    flex: 1;
+    padding: 30px 60px;
+    background-color: #e8e8e8;
+}
+section h3 { text-align: center; font-size: 22px; margin-bottom: 25px; }
+section p { margin-bottom: 18px; line-height: 1.6; }
+section p.bold { font-weight: bold; }
+
+/* 목록 표 (차량조회 등) */
+table.list {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+table.list th, table.list td {
+    border: 1px solid #999;
+    padding: 6px 22px;
+    text-align: center;
+}
+table.list th { background-color: #d9d9d9; }
+
+/* 입력 폼 (주행내역등록 등) */
+table.form {
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+}
+table.form th, table.form td {
+    border: 1px solid #999;
+    padding: 4px 8px;
+    text-align: left;
+}
+table.form th {
+    background-color: #d9d9d9;
+    text-align: center;
+    width: 90px;
+}
+table.form td.btn { text-align: center; }
+table.form input[type="text"] { width: 100px; padding: 2px 4px; }
+table.form .hint { margin-left: 6px; }
+
+/* footer */
+footer {
+    height: 70px;
+    background-color: #bdd3ea;
+    text-align: right;
+    line-height: 70px;
+    font-size: 13px;
+}
+#carT{
+	margin:0 auto;
+}
