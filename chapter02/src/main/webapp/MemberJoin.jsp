@@ -93,7 +93,23 @@
  			</tr>	
  		</table>
  	</form>
- 	<a href="MemberList.jsp">회원목록보기</a>
+ 	<!-- <a href="main.jsp?page=MemberList">회원목록보기</a> -->
+ 	
+ 	<p align="center">
+ 		<input type="button" value="회원 전체 보기" onclick="location.href='main.jsp?page=MemberList'">
+ 	</p>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
  </div>
 </body>
 </html>
+
+
+
+
+

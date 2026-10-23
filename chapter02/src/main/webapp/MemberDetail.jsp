@@ -69,8 +69,16 @@
  				<td align="center" width="150">남기는 말</td>
  				<td width="350"><%= rs.getString("info") %></td>
  			</tr>
+ 			<tr height="50">
+ 				<td  colspan="2" align="center">
+ 					<button onclick="location.href='main.jsp?page=MemberUpdateForm&id=<%=id%>'">회원수정</button>
+ 					<button onclick="location.href='main.jsp?page=MemberDeleteForm&id=<%=id%>'">회원삭제</button>
+ 					<button onclick="location.href='main.jsp?page=MemberList'">목록보기</button>
+ 					<button onclick="location.href='main.jsp?page=MemberJoin'">회원가입</button>
+ 				</td>
+ 			</tr>
  		</table>
- 		<a href="MemberList.jsp">회원 목록으로</a>
+ 		<a href="main.jsp?page=MemberList">회원 목록으로</a>
 	<%  
 	   }
 	    }catch(Exception e){

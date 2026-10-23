@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+/* ===== 기본 설정 ===== */
+:root {
+	--main: #ff7a1a;
+	--main-soft: rgba(255, 122, 26, .15);
+	--text: #333;
+	--line: #e8e8e8;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+	color: var(--text);
+	background: #fff;
+}
+ul { list-style: none; }
+a  { text-decoration: none; color: inherit; }
+
+/* ===== 헤더 ===== */
+#wrap {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+
+/* 상단 메뉴 (로그인/회원가입/주문조회/고객센터) */
+.header_top {
+	padding-top: 14px;
+}
+.header_top ul {
+	display: flex;
+	justify-content: flex-end;
+	gap: 32px;
+}
+.header_top a {
+	font-size: 14px;
+	color: #666;
+	transition: color .2s;
+}
+.header_top a:hover {
+	color: var(--main);
+}
+
+/* 로고 + 검색창 */
+.header_bottom {
+	display: flex;
+	align-items: center;
+	gap: 48px;
+	padding: 18px 0 24px;
+}
+.header_bottom > p a {
+	font-size: 28px;
+	font-weight: 900;
+	letter-spacing: 2px;
+	color: var(--main);
+}
+
+.search {
+	position: relative;
+	flex: 1;
+	max-width: 620px;
+	height: 52px;
+}
+.search input {
+	width: 100%;
+	height: 100%;
+	padding: 0 64px 0 28px;
+	font-size: 15px;
+	font-family: inherit;
+	color: #444;
+	background: #fff;
+	border: 2px solid var(--main);
+	border-radius: 30px;
+	outline: none;
+	transition: box-shadow .2s;
+}
+.search input::placeholder {
+	color: #aaa;
+}
+.search input:focus {
+	box-shadow: 0 0 0 4px var(--main-soft);
+}
+.search img {
+	position: absolute;
+	top: 50%;
+	right: 22px;
+	transform: translateY(-50%);
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+}
+
+/* ===== 네비게이션 ===== */
+nav {
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
+}
+nav ul {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	max-width: 1200px;
+	height: 56px;
+	margin: 0 auto;
+	padding: 0 24px;
+}
+nav li a {
+	display: block;
+	padding: 0 32px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 56px;
+	color: var(--text);
+	transition: color .2s;
+}
+nav li:first-child a {
+	padding-left: 0;
+}
+nav li a:hover {
+	color: var(--main);
+}
+
+/* ===== 메인 영역 ===== */
+section {
+	flex: 1;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 60px 24px;
+	font-size: 16px;
+	text-align: center;
+}
+
+/* ===== 푸터 (짙은 회색) ===== */
+footer {
+	padding: 40px 24px;
+	background: #333;
+	text-align: center;
+}
+footer p {
+	max-width: 1200px;
+	margin: 0 auto;
+	font-size: 14px;
+	line-height: 1.8;
+	color: #c8c8c8;
+}
+
+/* ===== 반응형 ===== */
+@media (max-width: 800px) {
+	.header_bottom {
+		flex-direction: column;
+		align-items: stretch;
+		gap: 16px;
+	}
+	.search {
+		max-width: none;
+	}
+	nav ul {
+		overflow-x: auto;
+	}
+	nav li a {
+		padding: 0 18px;
+		white-space: nowrap;
+	}
+}

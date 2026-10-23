@@ -23,6 +23,8 @@
 		    	content = "driveList.jsp";
 		 }else if("deptStat".equals(pageName)){			 
 		    	content = "deptStat.jsp";
+		 }else if("carDrive".equals(pageName)){			 
+		    	content = "carDrive.jsp";
 		 }
 		 
 		// pageName = "index.jsp"; 
