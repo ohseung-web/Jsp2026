@@ -1,0 +1,22 @@
+@charset "UTF-8";
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Malgun Gothic', sans-serif; display: flex; flex-direction: column; min-height: 100vh; }
+header, nav, section, footer { width: 100%; }
+/* 문항 2-③ : 헤더/푸터 배경 navy, 메뉴 텍스트 black */
+header { background-color: #1E1A4A; color: #fff; text-align: center; height: 90px; line-height: 90px; }
+header h1 { margin: 0; font-size: 28px; }
+nav { background-color: #cfd9f2; height: 40px; line-height: 40px; padding-left: 20px; }
+nav a { color: #000; text-decoration: none; margin-right: 30px; font-size: 14px; }
+nav a:hover { text-decoration: underline; }
+section { background-color: #eef1f6; flex: 1; padding: 30px 8%; }
+section h2 { text-align: center; }
+/* 문항 2-④ : 푸터 텍스트 오른쪽 정렬 */
+footer { background-color: #1E1A4A; color: #fff; text-align: center; height: 60px; line-height: 60px; padding-right: 20px; font-size: 13px; flex-shrink: 0; }
+table { border-collapse: collapse; margin: 0 auto; background: #fff; }
+th, td { border: 1px solid #b7c0d4; padding: 6px 12px; text-align: center; }
+th { background-color: #e1e6f2; }
+table.form th { text-align: left; width: 190px; }
+table.form td { text-align: left; }
+.btn-area { text-align: center; }
+a.link { color: #1a56c4; }
+.intro { width: 70%; margin: 0 auto; line-height: 1.8; }
