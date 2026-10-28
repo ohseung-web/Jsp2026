@@ -126,9 +126,91 @@ public class MemberDAO {
 		return m;
 	}
 	
+	//---- 2026년 10월 28일 DB 쿼리 업데이트
+	// 메소드이름 : loginCheck(),
+	// id, pass select 쿼리문작성
 	
+	public boolean loginCheck(String id, String pass) {
+		//리턴할 변수명 지정
+		boolean logChk = false; //현재 로그아웃 상태
+		
+		try {
+			
+			con = Util.getConnection();
+			// sql문
+			String sql ="select id from member where id=? and pass=?";
+			pstmt = con.prepareStatement(sql);
+			// ? 대입
+			pstmt.setString(1, id);
+			pstmt.setString(2, pass);
+			// sql 실행
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				logChk = true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch(Exception e) {e.printStackTrace();}
+		}
+		
+		// 리턴
+		return logChk;
+	}
 	
+	//---------------------------------------
+	// 이메일 또는 아이디로 회원목록 검색하는 메소드 작성
 	
+	public ArrayList<MemberDTO> searchMember(String keyword, String searchType){
+		   
+		    ArrayList<MemberDTO> m = new ArrayList<MemberDTO>();
+		    
+		    try {
+				
+				con = Util.getConnection();
+				String filed = "email".equals(searchType)? "email":"id";
+				
+				String sql ="select * from member where "+ filed + " like '%"+keyword+"%'";
+				pstmt = con.prepareStatement(sql);
+				// 쿼리실행
+				 rs = pstmt.executeQuery();
+	             			 
+				 while(rs.next()) {
+					 
+					 MemberDTO mdto = new MemberDTO();
+					 mdto.setId(rs.getString(1));
+					 mdto.setPass(rs.getString(2));
+					 mdto.setEmail(rs.getString(3));
+					 mdto.setTel(rs.getString(4));
+					 mdto.setHobby(rs.getString(5));
+					 mdto.setJob(rs.getString(6));
+					 mdto.setAge(rs.getString(7));
+					 mdto.setInfo(rs.getString(8));
+					 
+					 // ArrayList에 추가하기
+					 m.add(mdto);
+				 }
+				 
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				try {
+					if(rs != null) rs.close();
+					if(pstmt != null) pstmt.close();
+					if(con != null) con.close();
+				}catch(Exception e) {e.printStackTrace();}
+			}
+			
+			// 리턴
+		    return m;
+		
+	}
 	
 	
 	

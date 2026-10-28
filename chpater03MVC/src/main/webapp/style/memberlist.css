@@ -1,0 +1,105 @@
+@charset "UTF-8";
+#listwrap {
+	max-width: 880px;
+	margin: 40px auto;
+	padding: 0 16px;
+	font-family: "Noto Sans KR", "Malgun Gothic", sans-serif;
+	color: #1f2937;
+}
+
+#listwrap h2 {
+	margin: 0 0 24px;
+	font-size: 24px;
+	text-align: center;
+}
+
+/* 검색 영역 */
+#listwrap .searchbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 20px;
+}
+
+#listwrap .searchbox select,
+#listwrap .searchbox input[type="text"] {
+	height: 36px;
+	padding: 0 12px;
+	font-size: 14px;
+	color: #1f2937;
+	background-color: #fff;
+	border: 1px solid #d1d5db;
+	border-radius: 6px;
+	box-sizing: border-box;
+}
+
+#listwrap .searchbox input[type="text"] {
+	width: 240px;
+}
+
+#listwrap .searchbox select:focus,
+#listwrap .searchbox input[type="text"]:focus {
+	outline: none;
+	border-color: #2f6fed;
+}
+
+/* 버튼 공통 */
+#listwrap .searchbox .btn-search,
+#listwrap .searchbox .btn-all {
+	display: inline-block;
+	visibility: visible;
+	opacity: 1;
+	height: 36px;
+	padding: 0 16px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #fff;
+	border: 0;
+	border-radius: 6px;
+	cursor: pointer;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+#listwrap .searchbox .btn-search {
+	background-color: #2f6fed;
+}
+
+#listwrap .searchbox .btn-search:hover {
+	background-color: #1f56c4;
+}
+
+#listwrap .searchbox .btn-all {
+	background-color: #6b7280;
+}
+
+#listwrap .searchbox .btn-all:hover {
+	background-color: #4b5563;
+}
+
+/* 목록 테이블 */
+#listwrap .listtable {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 14px;
+	text-align: center;
+}
+
+#listwrap .listtable td {
+	padding: 10px 8px;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+/* 첫 번째 행 = 헤더 */
+#listwrap .listtable tr:first-child td {
+	background-color: #f3f4f6;
+	font-weight: 600;
+	border-top: 2px solid #374151;
+}
+
+/* 데이터 행 마우스 오버 (헤더 제외) */
+#listwrap .listtable tr:not(:first-child):hover td {
+	background-color: #f9fafb;
+}

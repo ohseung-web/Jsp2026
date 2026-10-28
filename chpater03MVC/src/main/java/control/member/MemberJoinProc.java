@@ -85,7 +85,19 @@ public class MemberJoinProc extends HttpServlet {
 			
 			// 회원전체 목록을 출력하는 MemberList생성할 예정
 			// MemberJoinProc 컨트롤러에서 -> MemberListCon.do 컨트롤러로 이동
-	        jspAddress ="/MemberListCon.do";		
+			// jsp에서 insert/update/delete 처럼 DB가 수정되는 쿼리는 
+			// --> forward가 아니라 sendRedirect로 내보내기한다.
+			// jsp에서는 select 처럼 단순히 검색한 내용을 화면에 출력할때만 forward로 내보내기한다.
+			// forward는 F5(새로고침)하면 원래요청을 재전송하는 특징을 가진다.
+			// sendRedirect는 이동한 주소만 재요청한다.
+			// sendRedirect는 response의 메소드이다.
+			// response.sendRedirect()이다.
+			//jspAddress ="/MemberListCon.do";
+			
+			//response.sendRedirect("MemberListCon.do");
+			response.sendRedirect("index.jsp");
+			// return을 이용하여 메소드 밖으로 빠저나간다.
+			return;
    			
 		}else {
 			request.setAttribute("msg", "비밀번호를 확인하세요");
