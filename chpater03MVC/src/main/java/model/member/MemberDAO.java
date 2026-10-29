@@ -213,9 +213,85 @@ public class MemberDAO {
 	}
 	
 	
+	//--- 2026년 10월 29일 쿼리문 작성
+	// 한 사람의 모든필드명 회원정보 리턴하는 메소드 필요
+	// MemberDTO를 이용해서 => 가방
+	public MemberDTO getOneMember(String id) {
+		
+		MemberDTO mdto=new MemberDTO();		
+		try {
+			
+			con = Util.getConnection();
+			// 쿼리준비
+			String sql="select * from member where id=?";
+			// 쿼리 실행객체
+			pstmt = con.prepareStatement(sql);
+			// ? 대입 => ?란 DB에 들어가는 값을 말한다.
+			pstmt.setString(1, id);
+			// 쿼리 실행
+			rs = pstmt.executeQuery();
+			// 
+			// 한사람에 대한 정보를 next()로 찾기
+			if(rs.next()) {
+				mdto.setId(rs.getString(1));
+				mdto.setPass(rs.getString(2));
+				mdto.setEmail(rs.getString(3));
+				mdto.setTel(rs.getString(4));
+				mdto.setHobby(rs.getString(5));
+				mdto.setJob(rs.getString(6));
+				mdto.setAge(rs.getString(7));
+				mdto.setInfo(rs.getString(8));
+			}
+			 
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch(Exception e) {e.printStackTrace();}
+		}
+		
+		//리턴
+		return mdto;
+	}
 	
-	
-	
+	//--- update : 매개변수로 가방인 MemberDTO 사용한다.
+	public void updateMember(MemberDTO mdto) {
+		
+		try {
+			
+			con = Util.getConnection();
+			// 쿼리준비
+			String sql="update member set pass=?, email=?, tel=?, hobby=?, job=?, age=?, info=? where id=?";
+			// 쿼리 실행객체
+			pstmt = con.prepareStatement(sql);
+			// ? 대입 => ?란 DB에 들어가는 값을 말한다.
+			pstmt.setString(1, mdto.getPass());
+			pstmt.setString(2, mdto.getEmail());
+			pstmt.setString(3, mdto.getTel());
+			pstmt.setString(4, mdto.getHobby());
+			pstmt.setString(5, mdto.getJob());
+			pstmt.setString(6, mdto.getAge());
+			pstmt.setString(7, mdto.getInfo());
+			pstmt.setString(8, mdto.getId());
+			
+			// 쿼리 실행
+			pstmt.executeUpdate();
+			// 
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(con != null) con.close();
+			}catch(Exception e) {e.printStackTrace();}
+		}
+		
+	}
 	
 	
 	
