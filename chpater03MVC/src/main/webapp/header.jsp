@@ -20,7 +20,7 @@
 						<a href="#" class="nav">예약확인</a>
 					</td>
 					<td align="center" width="200">
-						<a href="#" class="nav">게시판</a>
+						<a href="BoardListCon.do" class="nav">게시판</a>
 					</td>
 					
 <%--					로그인된 상태의 메뉴 : 일반=> MyPage k님 [로그아웃]

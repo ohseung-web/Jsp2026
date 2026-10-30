@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+
+/* ===== 게시판 전체 래퍼 ===== */
+.boardwrap {
+    width: 860px;
+    margin: 50px auto 80px;
+    padding: 0 20px;
+    font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    color: #222;
+    box-sizing: border-box;
+}
+
+/* 제목 영역 */
+.boardwrap h2 {
+    margin: 0 0 24px 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+/* ===== 테이블 기본 초기화 (HTML border="1" 무력화) ===== */
+.boardwrap table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.boardwrap table tr,
+.boardwrap table td {
+    border: none;
+}
+
+/* ===== 첫 번째 행: 글쓰기 버튼 영역 ===== */
+.boardwrap table tr:first-child td {
+    padding: 0 0 14px 0;
+    text-align: right;
+    background: transparent;
+}
+
+/* 글쓰기 버튼 */
+.boardwrap button {
+    padding: 9px 20px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #222; /* 모던한 다크 차콜 (원하면 #e60012 등 포인트 컬러로 변경 가능) */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.boardwrap button:hover {
+    background-color: #444;
+}
+
+.boardwrap button:active {
+    transform: translateY(1px);
+}
+
+/* ===== 두 번째 행: 테이블 헤더 (번호/제목/작성자/작성일자/조회) ===== */
+.boardwrap table tr:nth-child(2) td {
+    padding: 15px 10px;
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+    border-top: 2px solid #222; /* 진짜 표가 시작되는 곳에만 상단 굵은 선 적용 */
+    border-bottom: 1px solid #dee2e6;
+    text-align: center;
+}
+
+/* ===== 세 번째 행 이후: 게시글 데이터 행 ===== */
+.boardwrap table tr:nth-child(n+3) td {
+    padding: 15px 10px;
+    border-bottom: 1px solid #f1f3f5;
+    color: #495057;
+    text-align: center;
+    transition: background-color 0.15s ease;
+}
+
+/* 마지막 게시글 하단 마감선 */
+.boardwrap table tr:last-child td {
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* 데이터 행 마우스 오버 효과 */
+.boardwrap table tr:nth-child(n+3):hover td {
+    background-color: #f8f9fa;
+}
+
+/* 번호, 작성일자, 조회수는 살짝 연하게 처리해 제목 가독성 집중 */
+.boardwrap table tr:nth-child(n+3) td:nth-child(1),
+.boardwrap table tr:nth-child(n+3) td:nth-child(4),
+.boardwrap table tr:nth-child(n+3) td:nth-child(5) {
+    color: #868e96;
+    font-size: 13px;
+}
+
+/* 제목 칸 왼쪽 정렬 및 여백 */
+.boardwrap table tr:nth-child(n+3) td:nth-child(2) {
+    text-align: left;
+    padding-left: 18px;
+}
+
+/* 게시글 제목 링크 */
+.boardwrap table a {
+    color: #212529;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.boardwrap table a:hover {
+    color: #e63946; /* 상단 로고 톤에 맞춘 깔끔한 포인트 컬러 */
+    text-decoration: underline;
+}
+
+/* ===== 페이징 영역 ===== */
+.boardwrap .pageing {
+    margin-top: 32px;
+    text-align: center;
+     display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+
+.boardwrap .pageing a {
+    display: inline-block;
+    min-width: 34px;
+    height: 34px;
+    line-height: 32px;
+    padding: 0 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #495057;
+    background-color: #fff;
+    text-decoration: none;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.boardwrap .pageing a:hover {
+    color: #fff;
+    background-color: #222;
+    border-color: #222;
+}
